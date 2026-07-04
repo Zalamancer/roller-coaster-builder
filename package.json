@@ -1,0 +1,6 @@
+{
+  "name": "roller-coaster-builder",
+  "private": true,
+  "type": "module",
+  "description": "Build and ride a custom roller coaster using the Kenney Coaster Kit. Open index.html via any static server."
+}

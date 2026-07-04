@@ -1,0 +1,72 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: #87ceeb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+#game { display: block; width: 100%; height: 100%; touch-action: none; }
+#ui-root { position: fixed; inset: 0; pointer-events: none; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+#ui-root .panel { pointer-events: auto; }
+
+.hud-top {
+  position: absolute; top: 12px; left: 12px; right: 12px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+}
+
+.style-switcher { display: flex; gap: 6px; background: rgba(20,20,30,.55); padding: 8px; border-radius: 10px; flex-wrap: wrap; max-width: 360px; }
+.style-switcher button {
+  border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff;
+  padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; text-transform: capitalize;
+}
+.style-switcher button.active { background: #ffb703; color: #2b2b2b; border-color: #ffb703; font-weight: 600; }
+.style-switcher button:hover { background: rgba(255,255,255,.2); }
+.style-switcher button.active:hover { background: #ffb703; }
+
+.stats-panel { background: rgba(20,20,30,.55); padding: 8px 12px; border-radius: 10px; font-size: 12px; min-width: 150px; line-height: 1.5; }
+.stats-panel b { color: #ffd166; }
+
+.ride-btn { background: #2a9d8f; border: none; color: #fff; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+.ride-btn:hover { background: #21867a; }
+.ride-btn.exit { background: #e63946; }
+.ride-btn.exit:hover { background: #c5303c; }
+.ride-btn:disabled { background: #6b7280; cursor: not-allowed; }
+
+.instructions {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(20,20,30,.55); padding: 6px 14px; border-radius: 8px; font-size: 13px;
+  transition: opacity .6s ease; text-align: center; max-width: 480px;
+}
+.instructions.hidden { opacity: 0; }
+
+.palette {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(20,20,30,.6); padding: 10px; border-radius: 14px;
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 92vw;
+}
+.palette .group { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding-right: 8px; margin-right: 2px; border-right: 1px solid rgba(255,255,255,.2); max-width: 100%; }
+.palette .group:last-child { border-right: none; }
+.palette button {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff;
+  padding: 8px 10px; border-radius: 8px; cursor: pointer; font-size: 18px; min-width: 52px;
+}
+.palette button .label { font-size: 10px; text-transform: uppercase; letter-spacing: .03em; }
+.palette button:hover { background: rgba(255,255,255,.25); }
+.palette button:active { transform: scale(.95); }
+.palette button.danger { background: rgba(230,57,70,.35); }
+.palette button.danger:hover { background: rgba(230,57,70,.55); }
+
+.ride-hud {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(20,20,30,.6); padding: 10px 18px; border-radius: 10px; font-size: 14px;
+  display: flex; gap: 18px; align-items: center;
+}
+.ride-hud b { color: #ffd166; font-size: 16px; }
+
+.loading-screen {
+  position: absolute; inset: 0; background: #87ceeb; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px; font-size: 16px; pointer-events: auto;
+  transition: opacity .4s ease;
+}
+.loading-screen .bar { width: 240px; height: 8px; border-radius: 4px; background: rgba(0,0,0,.2); overflow: hidden; }
+.loading-screen .bar > div { height: 100%; width: 0%; background: #2a9d8f; transition: width .2s ease; }
+
+@media (max-width: 640px) {
+  .palette button { padding: 6px 7px; min-width: 42px; font-size: 15px; }
+  .style-switcher { max-width: 220px; }
+}
